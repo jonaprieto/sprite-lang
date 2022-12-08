@@ -1,16 +1,17 @@
 # resolver: lts-13.20
-resolver: lts-16.10
+resolver:  lts-20.3
 
 packages:
   - '.'
 
 extra-deps:
-- intern-0.9.2
+- git: https://github.com/jonaprieto/liquid-fixpoint
+  commit: a18b4579c7ab96de012b4f1048570329e99764a1
+- intern-0.9.4
 - located-base-0.1.1.1
 - text-format-0.3.2
-- tasty-rerun-1.1.14
-- git: https://github.com/ucsd-progsys/liquid-fixpoint
-  commit: d77c1eb45dc2ac73c5c547ed3353215ec329c65b
+- tasty-rerun-1.1.18
+- rest-rewrite-0.4.0@sha256:be93d899f7dece33f2a7613eb3dabd24d139f9cb2fc09f9efedfdce4ba6eb276,3923
 
-compiler: ghc-8.10.2
+# compiler: ghc-8.10.2
 allow-newer: true

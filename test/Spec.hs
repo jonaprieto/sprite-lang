@@ -241,12 +241,12 @@ loggingTestReporter = TestReporter [] $ \opts tree -> Just $ \smap -> do
           Done r -> return r
           _ -> STM.retry
 
-  (Const summary, _tests) <-
-     flip State.runStateT 0 $ Functor.getCompose $ getTraversal $
-      foldTestTree
-        trivialFold { foldSingle = runTest, foldGroup = runGroup }
-        opts
-        tree
+  -- (Const summary, _tests) <-
+  --    flip State.runStateT 0 $ Functor.getCompose $ getTraversal $
+  --     foldTestTree
+  --       trivialFold { foldSingle = runTest, foldGroup = runGroup }
+  --       opts
+  --       tree
 
   return $ \_elapsedTime -> do
     -- get some semblance of a hostname
@@ -266,10 +266,10 @@ loggingTestReporter = TestReporter [] $ \opts tree -> Just $ \smap -> do
 
 
     let dir = "test" </> "logs" </> host ++ "-" ++ time
-    let smry = "test" </> "logs" </> "cur" </> "summary.csv"
-    writeFile smry $ unlines
-                   $ hdr
-                   : map (\(n, t, r) -> printf "%s, %0.4f, %s" n t (show r)) summary
+    -- let smry = "test" </> "logs" </> "cur" </> "summary.csv"
+    -- writeFile smry $ unlines
+    --                $ hdr
+    --                : map (\(n, t, r) -> printf "%s, %0.4f, %s" n t (show r)) summary
     -- system $ "cp -r tests/logs/cur " ++ dir
     (==0) <$> computeFailures smap
 

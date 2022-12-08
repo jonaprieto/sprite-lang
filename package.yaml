@@ -1,4 +1,4 @@
-name:                sprite 
+name:                sprite
 version:             0.1.0.0
 github:              "ranjitjhala/sprite"
 license:             MIT
@@ -20,19 +20,19 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/githubuser/sprite#readme>
 
 dependencies:
-- base >= 4.7 && < 5
-- liquid-fixpoint >= 0.8
+- base == 4.16.*
+- liquid-fixpoint
 - cmdargs
-- process 
-- directory 
+- process
+- directory
 - filepath
 - containers
 - unordered-containers
-- deepseq 
+- deepseq
 - pretty
 - parsec
 - parser-combinators
-- megaparsec >= 7.0.0 && < 9 
+- megaparsec == 9.2.*
 - mtl
 
 library:
